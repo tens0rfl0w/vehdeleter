@@ -6,6 +6,8 @@ description "Deletes unoccupied vehicles with the use of statebags and game time
 author "tens0rfl0w"
 version "1.0.0"
 
+server_only 'yes'
+
 lua54 'yes'
 use_fxv2_oal 'yes'
 
