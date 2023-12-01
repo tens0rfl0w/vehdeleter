@@ -11,11 +11,9 @@ CreateThread(function()
             if ent then
                 local driver = GetPedInVehicleSeat(veh, -1)
                 if driver ~= 0 and IsPedAPlayer(driver) then
-                    ent.state.deletionTimer = timer
-                elseif ent.state.deletionTimer then
-                    if timer - ent.state.deletionTimer > Config.threshold then
-                        DeleteEntity(ent)
-                    end
+                    ent.state:set('deletionTimer', timer, false)
+                elseif ent.state.deletionTimer and timer - ent.state.deletionTimer > Config.threshold then
+                    DeleteEntity(ent)
                 end
             end
         end
